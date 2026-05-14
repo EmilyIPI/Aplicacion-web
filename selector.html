@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudadera Pacdora Mockup Pro</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;700&family=Lobster&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">pacdora <span class="badge">pro</span></div>
+        <nav>
+            <a href="#" class="active">Editor</a>
+            <a href="#" id="link-galeria">Galería</a>
+            <a href="#" id="link-cuenta">Mi Cuenta</a>
+        </nav>
+        <div class="nav-right">
+            <span>ES <i data-lucide="chevron-down"></i></span>
+            <button class="btn-primary" id="btn-guardar">Guardar Proyecto</button>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        <section class="viewer-section">
+            <div class="visor-mockup" id="visor-principal">
+                <div class="mockup-layers">
+                    <img src="frente.png" id="prenda-base" alt="Sudadera Realista">
+                    <div id="diseno-reflejado-container" class="blend-multiply">
+                        <img src="design.png" id="diseno-reflejado-img" alt="Logo">
+                        <div id="texto-reflejado-visor"></div>
+                    </div>
+                    <div class="sombra-realista"></div>
+                </div>
+
+                <div class="visor-controls">
+                    <button id="btn-frente" class="active-view">
+                        <i data-lucide="scan-text"></i> Frente
+                    </button>
+                    <button id="btn-espalda">
+                        <i data-lucide="align-justify"></i> Espalda
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="controls-panel">
+            <div class="panel-header">
+                <h3>Área de Diseño</h3>
+                <div class="action-icons">
+                    <input type="file" id="input-archivo" style="display: none;" accept="image/*">
+                    <i data-lucide="upload-cloud" id="btn-subir" style="cursor:pointer"></i>
+                    <i data-lucide="trash-2" id="btn-eliminar" style="cursor:pointer"></i>
+                </div>
+            </div>
+
+            <div class="workspace-2d">
+                <div class="pattern-canvas" id="canvas-container">
+                    <div id="guide-h" class="smart-guide horizontal"></div>
+                    <div id="guide-v" class="smart-guide vertical"></div>
+                    
+                    <div class="draggable-design" id="design-layer">
+                        <img src="design.png" alt="Tu Diseño" id="user-design-img">
+                        <div id="text-on-canvas"></div>
+                        <div class="resize-handle top-left"></div>
+                        <div class="resize-handle top-right"></div>
+                        <div class="resize-handle bottom-left"></div>
+                        <div class="resize-handle bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h3>Herramientas de Texto</h3>
+                <input type="text" id="input-texto-editor" placeholder="Escribe tu texto aquí..." class="input-moderno">
+                <div class="text-row">
+                    <select id="select-font">
+                        <option value="'Inter'">Estándar</option>
+                        <option value="'Lobster'">Elegante</option>
+                        <option value="'Bangers'">Comic</option>
+                        <option value="'Fira Code'">Tech</option>
+                    </select>
+                    <input type="color" id="color-texto" value="#000000">
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h3>Acabado del Material</h3>
+                <div class="material-grid">
+                    <button class="mat-btn active" data-blend="multiply">Algodón Mate</button>
+                    <button class="mat-btn" data-blend="overlay">Poliéster Brillo</button>
+                    <button class="mat-btn" data-blend="screen">Efecto Bordado</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h3>Alineación Rápida</h3>
+                <div class="alignment-tools">
+                    <button id="align-h" title="Centrar Horizontalmente"><i data-lucide="align-center-vertical"></i></button>
+                    <button id="align-v" title="Centrar Verticalmente"><i data-lucide="align-center-horizontal"></i></button>
+                </div>
+            </div>
+
+            <div class="option-group color-selector">
+                <h3>Color de Mockup</h3>
+                <div class="circles">
+                    <div class="circle white active color-btn" data-color="white"></div>
+                    <div class="circle black color-btn" data-color="black"></div>
+                </div>
+            </div>
+
+            <div class="footer-buttons">
+                <button class="btn-download" id="btn-descargar"><i data-lucide="download"></i> Descarga Gratis</button>
+                <button class="btn-primary" id="btn-compartir">Compartir</button>
+            </div>
+        </aside>
+    </main>
+
+    <div id="modal-galeria" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Galería de Inspiración</h2>
+                <i data-lucide="x" class="close-modal"></i>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="frente.png" alt="Ejemplo 1"><p>Sudadera</p></div>
+                <div class="gallery-item"><img src="gorra.png" alt="Ejemplo 2"><p>Gorra</p></div>
+                <div class="gallery-item"><img src="t.shirt.png" alt="Ejemplo 3"><p>T-Shirt Blanco</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cuenta" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mi Cuenta</h2>
+                <i data-lucide="x" class="close-modal"></i>
+            </div>
+            <div class="account-details">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar">JZ</div>
+                    <div class="user-data">
+                        <p><strong>Usuario:</strong> <span id="nombre-usuario">Jean Zapata</span> <i data-lucide="edit-3" id="btn-editar-nombre" style="cursor:pointer; width:14px; margin-left:5px;"></i></p>
+                        <p><strong>Suscripción:</strong> Plan Pro</p>
+                    </div>
+                    <button id="btn-logout" class="btn-logout" title="Cerrar Sesión"><i data-lucide="log-out"></i></button>
+                </div>
+                <h3>Mis Logotipos Guardados</h3>
+                <div class="saved-logos">
+                    <img src="design.png" class="mini-logo">
+                    <div class="upload-placeholder">+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
